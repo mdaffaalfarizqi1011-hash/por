@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+  /* Hero */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .hero-tag {
+    color: var(--accent);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .hero-name {
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-name span { color: var(--accent); }
+
+  .hero-desc {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .btn-accent {
+    background: var(--accent);
+    color: #000;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Syne', sans-serif;
+    transition: opacity 0.2s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-accent:hover { opacity: 0.85; transform: translateY(-2px); color: #000; }
+
+  .btn-outline-light {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    margin-left: 1rem;
+    font-family: 'Syne', sans-serif;
+  }
+
+  /* Section */
+  section { padding: 5rem 0; border-bottom: 1px solid #1e1e1e; }
+
+  .section-label {
+    color: var(--accent);
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Skills */
+  .skill-badge {
+    background: var(--card-bg);
+    border: 1px solid #2a2a2a;
+    color: var(--text);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin: 0.3rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .skill-badge:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Project Card */
+  .project-card {
+    background: var(--card-bg);
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 1.8rem;
+    height: 100%;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+
+  .project-tag {
+    color: var(--accent);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-title { font-size: 1.2rem; margin-bottom: 0.6rem; }
+
+  .project-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+
+  .project-link {
+    color: var(--accent);
+    font-size: 0.85rem;
+    text-decoration: none;
+    margin-top: 1rem;
+    display: inline-block;
+  }
+  .project-link:hover { opacity: 0.7; }
+
+  /* Contact */
+  .contact-box {
+    background: var(--card-bg);
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+  }
+
+  .contact-box a {
+    color: var(--accent);
+    font-size: 1.1rem;
+    word-break: break-all;
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     HERO SECTION
+     ✏️ GANTI: nama, deskripsi, dan tombol
+═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <p class="hero-tag">Portfolio</p>
+
+        <!-- ✏️ GANTI: Nama lengkap lu -->
+        <h1 class="hero-name">
+          Halo, Gua<br>
+          <span>{{ name }}</span>
+        </h1>
+
+        <!-- ✏️ GANTI: Deskripsi singkat tentang lu -->
+        <p class="hero-desc">
+          Mahasiswa jurusan Informatika yang suka ngulik web development dan desain.
+          Selalu belajar hal baru dan siap berkolaborasi.
+        </p>
+
+        <!-- ✏️ GANTI: Link CV atau section yang dituju -->
+        <a href="#projects" class="btn-accent">Lihat Proyek</a>
+        <a href="#contact" class="btn btn-outline-light">Hubungi Gua</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ABOUT SECTION
+     ✏️ GANTI: teks tentang diri lu
+═══════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <p class="section-label">About</p>
+        <h2 class="section-title">Siapa Gua?</h2>
+        <!-- ✏️ GANTI: Cerita singkat tentang diri lu -->
+        <p style="color:var(--muted); line-height:1.9; margin-bottom:1rem;">
+          Gua mahasiswa semester 2 yang lagi asik belajar web development.
+          Fokus di back-end tapi juga bisa front-end.
+        </p>
+        <p style="color:var(--muted); line-height:1.9;">
+          Selain coding, gua suka dengerin musik dan main game. Gua percaya
+          teknologi bisa bikin hidup lebih mudah kalau dibuat dengan bener.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <!-- ✏️ Info stats — ganti angka & labelnya -->
+        <div class="row g-3">
+          {% for stat in stats %}
+          <div class="col-6">
+            <div class="project-card text-center">
+              <h3 style="font-size:2rem; color:var(--accent); margin-bottom:0.3rem;">{{ stat.value }}</h3>
+              <p style="color:var(--muted); font-size:0.85rem; margin:0;">{{ stat.label }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SKILLS SECTION
+     ✏️ GANTI: list skill lu di app.py
+═══════════════════════════════════════════ -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Skills</p>
+    <h2 class="section-title">Yang Gua Bisa</h2>
+
+    {% for category, items in skills.items() %}
+    <div class="mb-4">
+      <!-- ✏️ GANTI: Nama kategori skill -->
+      <p style="color:var(--muted); font-size:0.85rem; margin-bottom:0.8rem;">{{ category }}</p>
+      <div>
+        {% for skill in items %}
+        <span class="skill-badge">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PROJECTS SECTION
+     ✏️ GANTI: data proyek lu di app.py
+═══════════════════════════════════════════ -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">Projects</p>
+    <h2 class="section-title">Proyek Gua</h2>
+
+    <div class="row g-4">
+      {% for project in projects %}
+      <div class="col-md-4">
+        <div class="project-card">
+          <!-- ✏️ Tag teknologi/kategori -->
+          <p class="project-tag">{{ project.tag }}</p>
+          <h5 class="project-title">{{ project.title }}</h5>
+          <p class="project-desc">{{ project.desc }}</p>
+          {% if project.link %}
+          <a href="{{ project.link }}" class="project-link" target="_blank">Lihat Proyek →</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CONTACT SECTION
+     ✏️ GANTI: email dan link sosial lu
+═══════════════════════════════════════════ -->
+<section id="contact" style="border-bottom:none;">
+  <div class="container">
+    <div class="contact-box">
+      <p class="section-label" style="text-align:center;">Contact</p>
+      <h2 class="section-title" style="text-align:center;">Hubungi Gua</h2>
+      <p style="color:var(--muted); margin-bottom:1.5rem;">
+        Tertarik kolaborasi atau ada yang mau ditanyain? Feel free!
+      </p>
+      <!-- ✏️ GANTI: Email lu -->
+      <a href="mailto:youremail@example.com">youremail@example.com</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
