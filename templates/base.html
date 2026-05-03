@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- ✏️ GANTI: Font Google - bisa pilih font lain di fonts.google.com -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+    <style>
+      :root {
+        /* ✏️ GANTI: Warna utama portofolio lu */
+        --accent: #00e5a0;
+        --bg: #0d0d0d;
+        --card-bg: #181818;
+        --text: #f0f0f0;
+        --muted: #888;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 300;
+      }
+
+      h1, h2, h3, h4, h5, .navbar-brand {
+        font-family: 'Syne', sans-serif;
+        font-weight: 800;
+      }
+
+      /* Navbar */
+      .navbar {
+        background: rgba(13, 13, 13, 0.85) !important;
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #222;
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+
+      /* ✏️ GANTI: Nama lu di navbar brand */
+      .navbar-brand {
+        color: var(--accent) !important;
+        font-size: 1.3rem;
+        letter-spacing: -0.5px;
+      }
+
+      .nav-link {
+        color: var(--muted) !important;
+        font-size: 0.9rem;
+        margin-left: 1rem;
+        transition: color 0.2s;
+      }
+      .nav-link:hover { color: var(--accent) !important; }
+
+      /* Footer */
+      footer {
+        background: #111;
+        border-top: 1px solid #222;
+        color: var(--muted);
+        font-size: 0.85rem;
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+        margin: 0 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md">
+      <div class="container">
+        <!-- ✏️ GANTI: Nama/inisial lu -->
+        <a class="navbar-brand" href="/">Muhammad Daffa Alfarizqi</a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span style="color:var(--accent)">☰</span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content dari tiap halaman -->
+    <div>{% block content %} {% endblock %}</div>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        <!-- ✏️ GANTI: Nama dan link sosial lu -->
+        Built by <span style="color:var(--accent)">YourName</span> &nbsp;·&nbsp;
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+      </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
